@@ -3,112 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance | Company Name</title>
+    <title>Ojasvi Karn | Coming Soon</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
         :root {
-            --primary-color: #2563eb;
-            --text-color: #1f2937;
-            --bg-gradient: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            /* Aesthetic Soft Gradient Background Colors */
+            --bg-start: #E0F2FE; /* Light Blue */
+            --bg-end: #EDE9FE;   /* Light Purple */
+            --primary: #1F2937; /* Dark Grey for Text */
+            --secondary: #6B7280; /* Lighter Grey for Subtext */
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+            
+            /* Bubble Gradients */
+            --bubble-1: linear-gradient(135deg, #6EE7B7 0%, #3B82F6 100%); /* Green-Blue */
+            --bubble-2: linear-gradient(135deg, #A78BFA 0%, #F472B6 100%); /* Purple-Pink */
+            --bubble-3: linear-gradient(135deg, #FCD34D 0%, #F97316 100%); /* Yellow-Orange */
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background: var(--bg-gradient);
+            /* Soft Gradient Background */
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            color: var(--primary);
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-color);
-            padding: 20px;
+            overflow: hidden;
+            position: relative;
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 600px;
+        /* Aesthetic Background Animation - Lots of Bubbles */
+        .bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none; /* Make sure bubbles don't interfere with clicks */
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.25; /* Subtle transparency */
+            filter: blur(60px); /* Soft aesthetic blur */
+            animation: float 30s infinite linear;
+        }
+
+        /* Bubble Definitions (More Bubbles, Various Gradients & Sizes) */
+        .shape-1 { width: 350px; height: 350px; top: -100px; left: -100px; background: var(--bubble-1); animation-duration: 35s; }
+        .shape-2 { width: 250px; height: 250px; bottom: 10%; right: 15%; background: var(--bubble-2); animation-duration: 40s; }
+        .shape-3 { width: 150px; height: 150px; top: 35%; left: 55%; background: var(--bubble-1); animation-duration: 25s; animation-direction: reverse; }
+        .shape-4 { width: 300px; height: 300px; top: 70%; left: -50px; background: var(--bubble-2); animation-duration: 45s; }
+        .shape-5 { width: 200px; height: 200px; top: 15%; right: 5%; background: var(--bubble-3); animation-duration: 32s; }
+        .shape-6 { width: 180px; height: 180px; bottom: -50px; left: 30%; background: var(--bubble-1); animation-duration: 38s; animation-direction: reverse; }
+        .shape-7 { width: 120px; height: 120px; top: 60%; right: 40%; background: var(--bubble-2); animation-duration: 28s; }
+        .shape-8 { width: 220px; height: 220px; bottom: 30%; left: 10%; background: var(--bubble-3); animation-duration: 42s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(50px, 50px) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        /* Main Content Container */
+        .container {
+            text-align: center;
+            z-index: 10;
+            max-width: 600px;
+            width: 90%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.2s var(--ease) forwards;
+            animation-delay: 0.3s;
+            background: rgba(255, 255, 255, 0.4); /* Glassmorphism effect for content background */
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            backdrop-filter: blur(10px); /* Blur the background under the content */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); /* Soft shadow */
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-bottom: 2.5rem;
+            display: block;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #111827;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
         }
 
         p {
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: #4b5563;
+            font-size: 1.15rem;
+            color: var(--secondary);
+            line-height: 1.8;
+            margin-bottom: 3.5rem;
+            font-weight: 400;
         }
 
-        .status-badge {
+        /* Minimal Button */
+        .contact-btn {
             display: inline-block;
-            background: #dbeafe;
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            border-top: 1px solid #e5e7eb;
-            padding-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .contact-info a {
-            color: var(--primary-color);
+            padding: 18px 36px;
+            background-color: var(--primary);
+            color: #FFFFFF;
             text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.2s;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.4s var(--ease);
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .contact-btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 1.8rem; }
-            .container { padding: 2rem 1.5rem; }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1rem; }
+            .container { padding: 3rem 2rem; }
+            .shape { opacity: 0.2; }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-elements">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+        <div class="shape shape-6"></div>
+        <div class="shape shape-7"></div>
+        <div class="shape shape-8"></div>
+    </div>
+
     <div class="container">
-        <div class="logo">LOGO</div>
-        <div class="status-badge">System Upgrade in Progress</div>
-        <h1>We’ll be back soon!</h1>
-        <p>
-            We are currently performing scheduled maintenance to improve our services. 
-            We apologize for the inconvenience and expect to be back online shortly.
-        </p>
+        <span class="brand">Ojasvi Karn</span>
+        <h1>Building something beautifully simple.</h1>
+        <p>I am currently crafting a brand new digital space. It’s taking a little time, but it will be worth the wait. In the meantime, feel free to reach out.</p>
         
-        <div class="contact-info">
-            <a href="mailto:support@company.com">Email Support</a>
-            <a href="#">Twitter/X Status</a>
-        </div>
+        <a href="mailto:contact@ojasvikarn.works" class="contact-btn">Get In Touch</a>
     </div>
 
 </body>
